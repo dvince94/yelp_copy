@@ -47,15 +47,15 @@
                                                     <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="88 Division St. Mission Bay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIp-iy-00Z">
-                                                    <rect key="frame" x="81" y="51" width="231" height="16"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="88 Division St. Mission Bay" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIp-iy-00Z">
+                                                    <rect key="frame" x="81" y="51" width="231" height="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thai, Seafood, Salad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icb-dx-SSE">
-                                                    <rect key="frame" x="81" y="69" width="125" height="16"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thai, Seafood, Salad" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icb-dx-SSE">
+                                                    <rect key="frame" x="81" y="67" width="231" height="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -90,6 +90,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="ijY-kQ-QqP" secondAttribute="trailing" constant="8" id="P9o-oR-qmg"/>
                                                 <constraint firstAttribute="trailing" secondItem="k23-Vr-e72" secondAttribute="trailing" constant="8" id="Q9r-Z4-L37"/>
                                                 <constraint firstItem="RIp-iy-00Z" firstAttribute="leading" secondItem="5dp-In-koq" secondAttribute="trailing" constant="8" id="Rp1-Pi-rke"/>
+                                                <constraint firstAttribute="trailing" secondItem="Icb-dx-SSE" secondAttribute="trailing" constant="8" id="ZjQ-cV-XdI"/>
                                                 <constraint firstItem="yUI-ib-i47" firstAttribute="leading" secondItem="g4B-xf-VGq" secondAttribute="trailing" constant="8" id="cD9-wi-XWJ"/>
                                                 <constraint firstItem="k23-Vr-e72" firstAttribute="top" secondItem="ijY-kQ-QqP" secondAttribute="bottom" constant="5" id="cZ5-te-WHh"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="5dp-In-koq" secondAttribute="bottom" constant="12" id="fq3-dX-XMU"/>

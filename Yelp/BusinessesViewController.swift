@@ -8,10 +8,12 @@
 
 import UIKit
 
-class BusinessesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class BusinessesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    var searchBar: UISearchBar!
     var businesses: [Business]!
+    var search: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +22,17 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
+        
+        //Initialize search bar
+        searchBar = UISearchBar()
+        searchBar.delegate = self
+        
+        
+        // Add SearchBar to the NavigationBar
+        searchBar.sizeToFit()
+        searchBar.backgroundColor = UIColor.redColor()
+        navigationItem.titleView = searchBar
+        navigationController?.navigationBar.barTintColor = UIColor.redColor()
         
         Business.searchWithTerm("Thai", completion: { (businesses: [Business]!, error: NSError!) -> Void in
             self.businesses = businesses
@@ -46,7 +59,41 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    //Search bar delegate methods
+    func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
+        searchBar.setShowsCancelButton(true, animated: true)
+        return true;
+    }
+    
+    func searchBarShouldEndEditing(searchBar: UISearchBar) -> Bool {
+        searchBar.setShowsCancelButton(false, animated: true)
+        return true;
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        search = searchBar.text
+        searchBar.resignFirstResponder()
+        doSearch()
+    }
+    
+    private func doSearch() {
+        Business.searchWithTerm(search, completion: { (businesses: [Business]!, error: NSError!) -> Void in
+            self.businesses = businesses
+            self.tableView.reloadData()
+            for business in businesses {
+                print(business.name!)
+                print(business.address!)
+            }
+        })
+    }
+    
+    //Tableview methods
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if businesses != nil {
             return businesses!.count
