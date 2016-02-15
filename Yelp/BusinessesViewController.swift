@@ -26,7 +26,7 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         //Initialize search bar
         searchBar = UISearchBar()
         searchBar.delegate = self
-        
+        searchBar.placeholder = "Restaurants"
         
         // Add SearchBar to the NavigationBar
         searchBar.sizeToFit()
@@ -34,7 +34,7 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         navigationItem.titleView = searchBar
         navigationController?.navigationBar.barTintColor = UIColor.redColor()
         
-        Business.searchWithTerm("Thai", completion: { (businesses: [Business]!, error: NSError!) -> Void in
+        Business.searchWithTerm("Restaurants", completion: { (businesses: [Business]!, error: NSError!) -> Void in
             self.businesses = businesses
             self.tableView.reloadData()
             for business in businesses {
@@ -86,10 +86,6 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         Business.searchWithTerm(search, completion: { (businesses: [Business]!, error: NSError!) -> Void in
             self.businesses = businesses
             self.tableView.reloadData()
-            for business in businesses {
-                print(business.name!)
-                print(business.address!)
-            }
         })
     }
     
@@ -110,14 +106,17 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         return cell
     }
     
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPathForCell(cell)
+        let coord = businesses![indexPath!.row]
+        
+        let detailViewController = segue.destinationViewController as! MapViewController
+        detailViewController.lat = coord.lat
+        detailViewController.long = coord.long
     }
-    */
 
 }
